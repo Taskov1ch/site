@@ -2,10 +2,9 @@
   font-family: "Minecraft", sans-serif;
   background-color: #1c1c1c;
   color: #8a8a8a;
-  padding: 30px 0;
   text-align: center;
   font-size: 0.9rem;
-  border-top: 1px solid var(--primary-orange);
+  border-top: 3px solid var(--primary-orange);
 }
 
 .footer p {

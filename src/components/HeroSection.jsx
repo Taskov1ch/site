@@ -51,6 +51,13 @@ function HeroSection() {
     return () => clearInterval(intervalRef.current);
   }, []);
 
+  const handleScrollToNextSection = () => {
+    const nextSection = document.getElementById('world-lore');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="hero-section">
       <div className="particles-overlay"></div>
@@ -64,6 +71,13 @@ function HeroSection() {
           <TimeDisplay value={timeElapsed.minutes} label="минут" isAnimating={isAnimating.minutes} />
           <TimeDisplay value={timeElapsed.seconds} label="секунд" isAnimating={isAnimating.seconds} />
         </div>
+      </div>
+      <div
+        className="scroll-down-indicator-container"
+        onClick={handleScrollToNextSection}
+        title="Листать вниз"
+      >
+        <div className="scroll-down-arrow"></div>
       </div>
     </section>
   );

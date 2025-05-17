@@ -13,9 +13,6 @@ function RankSlide({ rank }) {
       </div>
       <div className="rank-lore-container">
         <p className="rank-lore">{rank.lore}</p>
-        <p className="rank-stats">
-          Достигли: <span className="rank-stats-percentage">0%</span> игроков.
-        </p>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import RankSlide from "./RankSlide";
 import { ranks } from "../ranksData";
-
+import { useInView } from "react-intersection-observer";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../styles/RanksSection.css";
@@ -17,9 +17,16 @@ const getDarkenedBackgroundImage = (imageUrl) => {
 };
 
 function RanksSection() {
+  const { ref: sectionRef, inView: sectionIsVisible } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   const [bgLayer1, setBgLayer1] = useState({ url: "", opacity: 0, zIndex: 1 });
   const [bgLayer2, setBgLayer2] = useState({ url: "", opacity: 0, zIndex: 1 });
   const [isLayer1Active, setIsLayer1Active] = useState(true);
+  const [isSlidingCooldown, setIsSlidingCooldown] = useState(false);
+  const cooldownTimerRef = useRef(null);
+  const SLIDE_COOLDOWN_DURATION = Math.max(SWIPER_ANIMATION_SPEED, BACKGROUND_FADE_DURATION) + 200;
 
   useEffect(() => {
     if (ranks.length > 0 && ranks[0].backgroundImage) {
@@ -56,10 +63,8 @@ function RanksSection() {
     );
   }
 
-  const handleBeforeSlideAnimation = () => {};
-
   return (
-    <section id="ranks" className="ranks-section">
+    <section id="ranks" className="ranks-section" ref={sectionRef}>
       <div className="ranks-background-fader">
         <div
           className="ranks-background-image"
@@ -82,22 +87,24 @@ function RanksSection() {
       </div>
 
       <div className="container ranks-section-container">
-        <h2 className="section-title">Ранги Сервера</h2>
+        <h2 className={`section-title scroll-animate fade-in ${sectionIsVisible ? 'is-visible delay-200ms' : ''}`}>
+          Ранги Сервера
+        </h2>
         <Swiper
           modules={[Pagination]}
           slidesPerView={1}
           centeredSlides={true}
           loop={true}
           speed={SWIPER_ANIMATION_SPEED}
-          grabCursor={true}
+          grabCursor={!isSlidingCooldown}
+          allowTouchMove={!isSlidingCooldown}
           pagination={{ clickable: true }}
-          className="ranks-swiper"
+          className={`ranks-swiper ${isSlidingCooldown ? 'swiper-cooldown' : ''} scroll-animate fade-in-up ${sectionIsVisible ? 'is-visible delay-400ms' : ''}`}
           style={{ "--swiper-speed": `${SWIPER_ANIMATION_SPEED}ms` }}
-          onSlideChange={handleSlideChange}
-          onBeforeTransitionStart={handleBeforeSlideAnimation}
+          onSlideChangeTransitionStart={handleSlideChange}
           watchSlidesProgress
         >
-          {ranks.map((rank) => (
+          {ranks.map(rank => (
             <SwiperSlide key={rank.id} className="rank-swiper-slide">
               <RankSlide rank={rank} />
             </SwiperSlide>

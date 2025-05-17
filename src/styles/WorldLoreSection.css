@@ -1,0 +1,86 @@
+.world-lore-section {
+  padding: 100px;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/hero_bg.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: var(--text-main, #ffffff);
+  position: relative;
+  z-index: 1;
+
+}
+.world-lore-section .world-lore-container {
+  width: 90%;
+  max-width: 60vw;
+  margin: 0 auto;
+  background-color: rgba(30, 35, 45, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 30px 40px;
+  border-radius: var(--border-radius, 10px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.world-lore-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-family: "MinecraftTenCyrillic", sans-serif;
+  color: var(--primary-orange, #FFA500);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.world-lore-content {
+  text-align: justify;
+}
+
+.world-lore-content p {
+  font-family: "Minecraft", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-main, #e0e0e0);
+  margin-bottom: 20px;
+  text-indent: 1.5em;
+}
+
+.world-lore-content p:first-child {
+  text-indent: 0;
+}
+.world-lore-content p:last-child {
+  margin-bottom: 0;
+}
+
+.lore-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 6px;
+  margin: 25px auto;
+  display: block;
+  border: 2px solid rgba(255, 165, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .world-lore-section {
+    padding: 60px 15px;
+  }
+  .world-lore-section .world-lore-container {
+    padding: 25px 20px;
+    max-width: 80vw;
+    background-color: rgba(30, 35, 45, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  .world-lore-title {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+  .world-lore-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-indent: 1em;
+  }
+}

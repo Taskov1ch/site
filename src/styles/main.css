@@ -64,3 +64,13 @@ img {
 .btn:hover {
   background-color: var(--primary-orange-darker);
 }
+
+code {
+  font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  background-color: rgba(var(--primary-orange-rgb, 255, 165, 0), 0.1);
+  color: var(--primary-orange-darker, #E59400);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid rgba(var(--primary-orange-rgb, 255, 165, 0), 0.2);
+}

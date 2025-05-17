@@ -1,0 +1,190 @@
+  .rank-slide-content {
+    display: grid;
+    grid-template-columns: 0.2fr 1.5fr 1.3fr;
+    grid-template-areas: "name model lore";
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px;
+    min-height: 380px;
+    background-color: transparent;
+    border-radius: var(--border-radius);
+    box-shadow: none;
+    color: var(--text-light);
+    position: relative;
+    overflow: visible;
+  }
+
+  .rank-name-container {
+    grid-area: name;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .rank-name {
+    font-family: "MinecraftTenCyrillic", sans-serif;
+    font-size: 2.2rem;
+    color: var(--primary-orange-darker);
+    margin: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    line-height: 1;
+    padding: 8px 0;
+  }
+
+  .rank-model-container {
+    grid-area: model;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    height: 100%;
+  }
+
+  .rank-model {
+    max-height: 360px;
+    min-height: 240px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(255, 72, 0, 0.6));
+    transform: scale(1.15) translateY(-10px);
+    margin-bottom: 20px;
+  }
+
+  .rank-lore-container {
+    grid-area: lore;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    text-align: left;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #c0c0d0;
+    z-index: 2;
+    padding: 8px 12px;
+    position: relative;
+    border-left: 2px solid rgba(255, 165, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    max-height: 280px;
+    overflow-y: auto;
+  }
+
+  .rank-lore {
+    font-family: "Minecraft", sans-serif;
+    margin: 0 0 10px 0;
+    width: 100%;
+    font-style: italic;
+  }
+
+  .rank-stats {
+    font-family: "Minecraft", sans-serif;
+    font-size: 0.8rem;
+    color: #a0a8b0;
+    width: 100%;
+    text-align: left;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .rank-stats-percentage {
+    color: var(--primary-orange);
+    font-weight: bold;
+  }
+
+  @media (max-width: 1024px) {
+    .rank-slide-content {
+      grid-template-columns: 0.3fr 1.3fr 1.4fr;
+      min-height: 340px;
+      padding: 12px;
+      gap: 10px;
+    }
+    .rank-name {
+      font-size: 2rem;
+    }
+    .rank-model {
+      max-height: 320px;
+      margin-bottom: 15px;
+    }
+    .rank-lore-container {
+      font-size: 0.9rem;
+      padding: 6px 10px;
+      max-height: 240px;
+    }
+    .rank-lore {
+      margin-bottom: 8px;
+    }
+    .rank-stats {
+      font-size: 0.75rem;
+      padding-top: 6px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .rank-slide-content {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "name"
+        "model"
+        "lore";
+      text-align: center;
+      gap: 12px;
+      padding: 10px;
+      min-height: auto;
+    }
+    .rank-name-container,
+    .rank-model-container,
+    .rank-lore-container {
+      width: 100%;
+      height: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .rank-name {
+      writing-mode: horizontal-tb;
+      transform: none;
+      white-space: normal;
+      overflow-wrap: break-word;
+      font-size: 1.4rem;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+    .rank-model {
+      max-height: 220px;
+      min-height: 180px;
+      margin-bottom: 10px;
+      transform: scale(1.1) translateY(0);
+    }
+    .rank-lore-container {
+      align-items: center;
+      text-align: center;
+      font-size: 0.9rem;
+      max-height: none;
+      overflow-y: visible;
+      border-left: none;
+      background-color: transparent;
+      padding: 8px 5px;
+    }
+    .rank-lore {
+      margin-bottom: 8px;
+    }
+    .rank-stats {
+      font-size: 0.75rem;
+      text-align: center;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }

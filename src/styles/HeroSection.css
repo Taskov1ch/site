@@ -1,0 +1,136 @@
+:root {
+  --hero-main-bg: #212121;
+  --hero-accent: #ff5722;
+  --hero-accent-light: #ff7043;
+  --hero-text-main: #ffffff;
+  --hero-text-sub: #bdbdbd;
+  --hero-timer-border: #ff6e40;
+  --hero-timer-bg: #3c3c3c;
+}
+
+@font-face {
+  font-family: "MinecraftTenCyrillic";
+  src: url("/fonts/minecraft-ten-font-cyrillic.ttf") format("truetype");
+}
+
+.hero-section {
+  font-family: "MinecraftTenCyrillic", sans-serif;
+  background-image: url("/images/hero_bg.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: var(--primary-orange);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100dvh;
+  position: relative;
+  overflow: hidden;
+}
+
+.particles-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.hero-title-main {
+  font-size: 1.8rem;
+  color: var(--primary-orange);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  color: var(--hero-text-sub);
+}
+
+.hero-timer-box-title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--hero-text-main);
+}
+
+.hero-timer-box {
+  display: inline-flex;
+  gap: 10px;
+  background-color: var(--hero-timer-bg);
+  border: 2px solid var(--hero-timer-border);
+  padding: 1.25rem 1.875rem;
+  color: var(--primary-orange-darker);
+  border-radius: 0.625rem;
+  min-width: 18.5rem;
+  justify-content: center;
+}
+
+.hero-timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+  min-width: 3rem;
+}
+
+.hero-timer-digit {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1;
+  display: inline-block;
+  min-width: 1.5em;
+  text-align: center;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.hero-timer-digit.animating {
+  opacity: 0.3;
+}
+
+.hero-timer-label {
+  font-size: 0.75rem;
+  color: var(--hero-text-sub);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 480px) {
+  .hero-title-main {
+    font-size: 1.5rem;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  .hero-timer-box-title {
+    font-size: 1rem;
+  }
+  .hero-timer-box {
+    padding: 1rem 1.25rem;
+    min-width: auto;
+    width: 60%;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .hero-timer-unit {
+    min-width: 2.5rem;
+  }
+  .hero-timer-digit {
+    font-size: 1.5rem;
+  }
+}

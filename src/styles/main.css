@@ -74,3 +74,18 @@ code {
   font-size: 0.9em;
   border: 1px solid rgba(var(--primary-orange-rgb, 255, 165, 0), 0.2);
 }
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.app-content-wrapper.content-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.98); /* Для эффекта "всплытия" */
+  transition: none;
+}
+.app-content-wrapper.content-visible {
+  opacity: 1;
+  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+}

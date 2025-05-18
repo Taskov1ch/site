@@ -150,7 +150,7 @@
   }
    .team-member-card {
     backdrop-filter: blur(4px);
-    background-color: rgba(40, 42, 55, 0.8);
+    background-color: rgba(40, 42, 55, 0.2);
   }
   .team-member-avatar-container { width: 100px; height: 100px; }
   .team-member-nickname { font-size: 1.4rem; }

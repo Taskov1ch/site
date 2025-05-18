@@ -91,6 +91,7 @@
   font-family: "MinecraftTenCyrillic", sans-serif;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
+  text-align: center;
   padding: 10px;
   border-radius: 5px;
   animation: preloader-text-pulse 2s infinite alternate;

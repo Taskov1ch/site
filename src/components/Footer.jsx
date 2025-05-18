@@ -6,7 +6,7 @@ function Footer() {
       <div className="container">
         <p>Тут скоро будет Copyright</p>
         <div className="social-links">
-          <a href="https://vk.com/aurion_be">VK</a>
+          <a href="https://vk.com/aurion_be" target="_blank">VK</a>
         </div>
       </div>
     </footer>

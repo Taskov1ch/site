@@ -64,7 +64,9 @@
 .hero-timer-box {
   display: inline-flex;
   gap: 10px;
-  background-color: var(--hero-timer-bg);
+  background-color: rgba(55, 60, 75, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 2px solid var(--hero-timer-border);
   padding: 1.25rem 1.875rem;
   color: var(--primary-orange-darker);

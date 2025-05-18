@@ -32,7 +32,7 @@
 }
 
 .faq-item {
-  background-color: rgba(55, 60, 75, 0.6);
+  background-color: rgba(55, 60, 75, 0.2);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   margin-bottom: 12px;

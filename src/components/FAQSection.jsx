@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { faqData } from '../faqData';
-import '../styles/FAQSection.css';
+import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
+import { faqData } from "../faqData";
+import "../styles/FAQSection.css";
 
 const FAQItem = ({ item, index, sectionIsVisible }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ const FAQItem = ({ item, index, sectionIsVisible }) => {
   return (
     <li
       className={`faq-item scroll-animate fade-in-up ${
-        sectionIsVisible ? `is-visible ${delayClass}` : ''
+        sectionIsVisible ? `is-visible ${delayClass}` : ""
       }`}
     >
       <button
@@ -25,11 +25,11 @@ const FAQItem = ({ item, index, sectionIsVisible }) => {
         aria-controls={`faq-answer-${item.id}`}
       >
         <span className="faq-question-text">{item.question}</span>
-        <span className={`faq-icon ${isOpen ? 'open' : ''}`}>{isOpen ? '−' : '+'}</span>
+        <span className={`faq-icon ${isOpen ? "open" : ""}`}>{isOpen ? "−" : "+"}</span>
       </button>
       <div
         id={`faq-answer-${item.id}`}
-        className={`faq-answer-wrapper ${isOpen ? 'open' : ''}`}
+        className={`faq-answer-wrapper ${isOpen ? "open" : ""}`}
         aria-hidden={!isOpen}
       >
         <div className="faq-answer-content">
@@ -51,7 +51,7 @@ const FAQSection = () => {
       <div className="container faq-container">
         <h2
           className={`section-title faq-title scroll-animate fade-in-up ${
-            sectionIsVisible ? 'is-visible' : ''
+            sectionIsVisible ? "is-visible" : ""
           }`}
         >
           Часто Задаваемые Вопросы

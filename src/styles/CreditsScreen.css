@@ -1,0 +1,169 @@
+/* src/styles/CreditsScreen.css */
+.credits-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  background-color: #101216; /* Темный фон, как у прелоадера */
+  z-index: 10000; /* Выше всех остальных элементов, включая прелоадер, если он уже скрыт */
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.95) translateY(10px); /* Немного уменьшен и сдвинут для анимации */
+  transition: opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    visibility 0s linear 0.45s,
+    transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  color: var(--text-main, #ffffff);
+  font-family: "Minecraft", sans-serif; /* Или более стандартный шрифт для лучшей читаемости */
+}
+
+.credits-screen.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  transition-delay: 0s;
+}
+
+.credits-back-button {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-main, #ffffff);
+  font-size: 1.8rem;
+  font-weight: normal;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  z-index: 10001; /* Выше контента благодарностей */
+}
+
+.credits-back-button:hover {
+  background-color: rgba(var(--primary-orange-rgb, 255, 165, 0), 0.2);
+  transform: scale(1.05) rotate(90deg);
+  box-shadow: 0 0 10px rgba(var(--primary-orange-rgb, 255, 165, 0), 0.5);
+}
+
+.credits-content-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; /* Позволяет прокручивать контент, если он не помещается */
+  padding: 80px 30px 40px; /* Отступы: сверху больше из-за кнопки "назад" */
+  box-sizing: border-box;
+}
+
+.credits-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.credits-content h2 {
+  font-family: "MinecraftTenCyrillic", sans-serif;
+  color: var(--primary-orange, #FFA500);
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.credits-content section {
+  margin-bottom: 35px;
+  padding: 20px;
+  background-color: rgba(55, 60, 75, 0.1); /* Легкий фон для секций */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: var(--border-radius, 8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.credits-content h3 {
+  color: var(--primary-orange-darker, #ff5722);
+  font-family: "MinecraftTenCyrillic", sans-serif;
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(var(--primary-orange-rgb, 255, 165, 0), 0.3);
+}
+
+.credits-content p,
+.credits-content li {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-sub, #ced4da);
+  margin-bottom: 10px;
+}
+
+.credits-content strong {
+  color: var(--text-main, #eceff1);
+}
+
+.credits-content a {
+  color: var(--primary-orange-lighter, #ffcc80);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--primary-orange-lighter, #ffcc80);
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.credits-content a:hover {
+  color: var(--hero-accent-light, #ff7043);
+  border-bottom-color: var(--hero-accent-light, #ff7043);
+}
+
+.credits-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.credits-content li {
+  padding-left: 1.5em;
+  position: relative;
+}
+
+.credits-content li::before {
+  content: "✧"; /* Или другой символ маркера */
+  color: var(--primary-orange, #FFA500);
+  position: absolute;
+  left: 0;
+  top: 1px; /* Настройте позиционирование */
+  font-size: 0.9em;
+}
+
+.credits-footer-note {
+  text-align: center;
+  font-style: italic;
+  margin-top: 40px;
+  color: var(--text-sub, #b0bec5);
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .credits-content h2 {
+    font-size: 2.2rem;
+  }
+  .credits-content h3 {
+    font-size: 1.4rem;
+  }
+  .credits-content p, .credits-content li {
+    font-size: 0.95rem;
+  }
+  .credits-back-button {
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+  }
+  .credits-content-wrapper {
+    padding: 70px 20px 30px;
+  }
+}

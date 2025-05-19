@@ -45,7 +45,7 @@
 .navbar-links-desktop li a {
   color: var(--text-sub, #c0c5ce);
   text-decoration: none;
-  padding: 10px 16px;
+  padding: 10px 15px 10px 20px;
   margin: 0 4px;
   font-family: "Minecraft", sans-serif;
   font-size: 0.85rem;
@@ -143,9 +143,9 @@
   font-size: 0.75rem;
   font-family: "Minecraft", sans-serif;
   white-space: nowrap;
-  overflow: hidden;
+  /* overflow: hidden; */
   text-overflow: ellipsis;
-  max-width: 180px;
+  /* max-width: 180px; */
   margin-right: 8px;
 }
 
@@ -297,3 +297,93 @@
     height: 38px;
   }
 }
+
+
+/* src/styles/Navbar.css */
+/* ... (существующие стили Navbar сверху) ... */
+
+.navbar-music-toggle {
+  background-color: rgba(255, 255, 255, 0.03); /* Немного фона для выделения */
+  border: 1px solid rgba(var(--primary-orange-rgb, 255, 165, 0), 0.25); /* Тонкая рамка */
+  color: var(--text-sub, #bdbdbd); /* Цвет иконки по умолчанию */
+  cursor: pointer;
+  padding: 0; /* Убираем внутренний отступ, т.к. есть обертка для иконки */
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Плавный переход для всех анимируемых свойств */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px; /* Фиксированный размер для кнопки */
+  height: 38px; /* Фиксированный размер для кнопки */
+  outline: none; /* Убираем стандартный контур фокуса */
+  position: relative; /* Для возможных псевдоэлементов или сложных анимаций */
+}
+
+.navbar-music-toggle:hover,
+.navbar-music-toggle:focus-visible { /* :focus-visible для доступности */
+  color: var(--primary-orange, #FFA500);
+  background-color: rgba(var(--primary-orange-rgb, 255, 165, 0), 0.1);
+  border-color: rgba(var(--primary-orange-rgb, 255, 165, 0), 0.5);
+  transform: translateY(-1px) scale(1.05); /* Легкий подъем и увеличение */
+  box-shadow: 0 4px 10px rgba(var(--primary-orange-rgb, 255, 165, 0), 0.2);
+}
+
+.navbar-music-toggle:active {
+  transform: translateY(0px) scale(0.98); /* Эффект нажатия */
+  box-shadow: 0 2px 5px rgba(var(--primary-orange-rgb, 255, 165, 0), 0.15);
+}
+
+/* Выделение кнопки, когда музыка играет */
+.navbar-music-toggle.is-playing {
+  color: var(--primary-orange, #FFA500); /* Иконка становится оранжевой */
+  border-color: var(--primary-orange, #FFA500);
+  background-color: rgba(var(--primary-orange-rgb, 255, 165, 0), 0.08);
+}
+
+.navbar-music-toggle.is-playing:hover,
+.navbar-music-toggle.is-playing:focus-visible {
+  background-color: rgba(var(--primary-orange-rgb, 255, 165, 0), 0.15);
+  box-shadow: 0 0 12px rgba(var(--primary-orange-rgb, 255, 165, 0), 0.4); /* Легкое свечение */
+}
+
+/* Обертка для иконки внутри кнопки */
+.navbar-music-toggle .icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;  /* Соответствует размеру SVG */
+  height: 12px; /* Соответствует размеру SVG */
+  animation: iconFadeInRotate 0.4s ease-out forwards; /* Анимация при смене иконки */
+}
+
+/* Сами SVG иконки */
+.navbar-music-toggle svg {
+  display: block; /* Убирает лишнее пространство под SVG */
+  /* fill: currentColor; уже установлено в JSX, но можно и здесь */
+}
+
+/* Анимация для появления/смены иконки */
+@keyframes iconFadeInRotate {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 900px) {
+  .navbar-mobile-controls-left .navbar-music-toggle {
+    width: 36px; /* Можно сделать чуть меньше, если нужно */
+    height: 36px;
+  }
+   .navbar-mobile-controls-left .navbar-music-toggle .icon-container {
+    width: 16px; /* И иконку тоже */
+    height: 16px;
+   }
+}
+
+/* ... (остальные стили Navbar, включая .navbar-track-info и т.д.) ... */

@@ -85,7 +85,6 @@
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transform: translateX(100vw);
   transition: opacity var(--swiper-speed, 800ms) ease, transform var(--swiper-speed, 800ms) ease;
   will-change: transform, opacity;
   box-shadow: none;
@@ -136,7 +135,8 @@
   top: -1px;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -144,6 +144,7 @@ html, body {
   .ranks-section-container {
     width: 90%;
   }
+
   .ranks-swiper {
     width: 100%;
     max-width: none;
@@ -151,10 +152,12 @@ html, body {
     min-height: 450px;
     max-height: 75vh;
   }
+
   .section-title {
     font-size: 2.2rem;
     margin-bottom: 25px;
   }
+
   .ranks-swiper .swiper-pagination {
     bottom: 20px;
   }
@@ -164,9 +167,11 @@ html, body {
   .ranks-section {
     padding: 15px 0;
   }
+
   .ranks-section-container {
     width: 95%;
   }
+
   .ranks-swiper {
     width: 100%;
     max-width: none;
@@ -174,14 +179,17 @@ html, body {
     min-height: auto;
     max-height: none;
   }
+
   .section-title {
     font-size: 1.8rem;
     margin-bottom: 20px;
   }
+
   .swiper-drag-hint {
     font-size: 0.8rem;
     margin-top: 15px;
   }
+
   .ranks-swiper .swiper-pagination {
     bottom: 10px;
   }

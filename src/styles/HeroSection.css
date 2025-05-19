@@ -15,12 +15,7 @@
 
 .hero-section {
   font-family: "MinecraftTenCyrillic", sans-serif;
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/hero_bg.webp');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: var(--hero-main-bg);
+  background: transparent;
   color: var(--primary-orange);
   display: flex;
   flex-direction: column;
@@ -127,14 +122,19 @@
 }
 
 @keyframes bounce-scroll-arrow {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     transform: translateY(0) rotate(45deg);
     opacity: 0.6;
   }
+
   50% {
     transform: translateY(-12px) rotate(45deg);
     opacity: 1;
   }
+
   80% {
     transform: translateY(-5px) rotate(45deg);
     opacity: 0.8;
@@ -145,13 +145,16 @@
   .hero-title-main {
     font-size: 1.5rem;
   }
+
   .hero-subtitle {
     font-size: 0.9rem;
     margin-bottom: 2rem;
   }
+
   .hero-timer-box-title {
     font-size: 1rem;
   }
+
   .hero-timer-box {
     padding: 1rem 1.25rem;
     min-width: auto;
@@ -159,16 +162,20 @@
     flex-wrap: wrap;
     gap: 5px;
   }
+
   .hero-timer-unit {
     min-width: 2.5rem;
   }
+
   .hero-timer-digit {
     font-size: 1.5rem;
   }
+
   .scroll-down-indicator-container {
     bottom: 20px;
     padding: 10px;
   }
+
   .scroll-down-arrow {
     width: 18px;
     height: 18px;

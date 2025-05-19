@@ -1,21 +1,27 @@
-import React from 'react';
-import { useInView } from 'react-intersection-observer';
-import { teamMembers } from '../teamData';
-import '../styles/TeamSection.css';
+import React from "react";
+import { useInView } from "react-intersection-observer";
+import { teamMembers } from "../teamData";
+import "../styles/TeamSection.css";
 
 const TeamMemberCard = ({ member, isVisible, delay }) => {
   return (
     <div
       className={`team-member-card scroll-animate fade-in-up ${
-        isVisible ? `is-visible ${delay}` : ''
+        isVisible ? `is-visible ${delay}` : ""
       }`}
     >
       <div className="team-member-avatar-container">
-        <img src={member.avatar} alt={`Аватар ${member.nickname}`} className="team-member-avatar" />
+        <img
+          src={member.avatar}
+          alt={`Аватар ${member.nickname}`}
+          className="team-member-avatar"
+        />
       </div>
       <h3 className="team-member-nickname">{member.nickname}</h3>
       <p className="team-member-role">{member.role}</p>
-      <blockquote className="team-member-comment">"{member.comment}"</blockquote>
+      <blockquote className="team-member-comment">
+        "{member.comment}"
+      </blockquote>
       <div className="team-member-socials">
         {member.socialLinks.map((link) => (
           <a
@@ -46,7 +52,7 @@ const TeamSection = () => {
       <div className="container team-container">
         <h2
           className={`section-title team-title scroll-animate fade-in-up ${
-            sectionIsVisible ? 'is-visible' : ''
+            sectionIsVisible ? "is-visible" : ""
           }`}
         >
           Команда Разработчиков
@@ -63,7 +69,11 @@ const TeamSection = () => {
             ))}
           </div>
         ) : (
-          <p className={`scroll-animate fade-in ${sectionIsVisible ? 'is-visible delay-200ms' : ''}`}>
+          <p
+            className={`scroll-animate fade-in ${
+              sectionIsVisible ? "is-visible delay-200ms" : ""
+            }`}
+          >
             Информация о команде появится здесь в ближайшее время...
           </p>
         )}

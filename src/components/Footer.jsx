@@ -1,12 +1,22 @@
 import "../styles/Footer.css";
 
-function Footer() {
+function Footer({ onToggleCredits }) {
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="container footer-container">
         <p>Тут скоро будет Copyright</p>
         <div className="social-links">
-          <a href="https://vk.com/aurion_be" target="_blank">VK</a>
+          <a
+            href="https://vk.com/aurion_be"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            VK
+          </a>
+          <span className="footer-link-separator">|</span>
+          <button onClick={onToggleCredits} className="footer-credits-button">
+            Благодарности
+          </button>
         </div>
       </div>
     </footer>

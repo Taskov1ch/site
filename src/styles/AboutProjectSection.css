@@ -1,0 +1,125 @@
+/* src/styles/AboutProjectSection.css */
+.about-project-section {
+  padding: 90px 20px;
+  background: transparent;
+  color: var(--text-main, #ffffff);
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  font-family: "Minecraft", sans-serif;
+}
+
+.about-project-container {
+  width: 90%;
+  max-width: 850px; /* Оптимальная ширина для текста */
+  margin: 0 auto;
+  background-color: rgba(38, 42, 53, 0.3); /* Слегка измененный фон контейнера */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 35px 40px;
+  border-radius: var(--border-radius-large, 12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-project-title {
+  text-align: center;
+  font-size: 2.5rem; /* Как у других секций */
+  font-family: "MinecraftTenCyrillic", sans-serif;
+  color: var(--primary-orange, #FFA500);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.about-project-content {
+  text-align: left;
+  font-size: 1.08rem; /* Немного крупнее для основного текста */
+  line-height: 1.8;
+  color: var(--text-main, #e0e0e0);
+}
+
+.about-project-content p {
+  margin-bottom: 22px;
+}
+
+.about-project-content p:last-of-type { /* Чтобы последний параграф в блоке не имел лишнего отступа */
+  margin-bottom: 0;
+}
+
+.about-project-subtitle {
+  font-family: "MinecraftTenCyrillic", sans-serif;
+  font-size: 1.5rem;
+  color: var(--primary-orange-darker, #ff5722);
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.about-project-content ul {
+  list-style: none;
+  padding-left: 0; /* Убираем стандартный отступ, т.к. используем кастомные маркеры через ::before */
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.about-project-content li {
+  margin-bottom: 14px;
+  position: relative;
+  padding-left: 28px; /* Место для кастомного маркера */
+  font-size: 1.02rem; /* Размер текста для пунктов списка */
+  color: var(--text-sub, #ced4da); /* Немного приглушенный цвет для пунктов списка */
+}
+
+.about-project-content li::before {
+  content: "❖"; /* Ромб или другой подходящий символ */
+  color: var(--primary-orange, #FFA500);
+  position: absolute;
+  left: 0;
+  top: 1px; /* Подберите для лучшего выравнивания */
+  font-size: 1.1em; /* Размер маркера */
+  line-height: 1;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .about-project-section {
+    padding: 70px 15px;
+  }
+  .about-project-container {
+    padding: 30px 25px;
+    max-width: 95%;
+  }
+  .about-project-title {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+  .about-project-content {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+   .about-project-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  .about-project-content li {
+    padding-left: 25px;
+    font-size: 0.95rem;
+  }
+  .about-project-content li::before {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-project-title {
+    font-size: 1.9rem;
+  }
+  .about-project-content {
+    font-size: 0.92rem;
+  }
+   .about-project-subtitle {
+    font-size: 1.2rem;
+  }
+  .about-project-content li {
+    font-size: 0.9rem;
+  }
+}

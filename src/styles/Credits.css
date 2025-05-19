@@ -1,0 +1,196 @@
+.credits-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px) scale(0.97);
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              visibility 0s linear 0.4s;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: "Minecraft", sans-serif;
+}
+
+.credits-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
+}
+
+.credits-container {
+  background-color: #101216;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 30px 45px;
+  border-radius: var(--border-radius-large, 12px);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90dvh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-main, #eceff1);
+}
+
+.credits-container::-webkit-scrollbar {
+  width: 10px;
+}
+.credits-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.credits-container::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--primary-orange-rgb, 255, 165, 0), 0.5);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.credits-container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-orange, #FFA500);
+}
+
+.credits-back-button {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: transparent;
+  border: none;
+  color: var(--text-main, #eceff1);
+  font-size: 2.3rem;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.credits-back-button:hover {
+  color: var(--primary-orange, #FFA500);
+  transform: scale(1.15) rotate(90deg);
+}
+
+.credits-container h2 {
+  font-family: "MinecraftTenCyrillic", sans-serif;
+  color: var(--primary-orange, #FFA500);
+  text-align: center;
+  font-size: 2.3rem;
+  margin-top: 5px;
+  margin-bottom: 35px;
+}
+
+.credits-section {
+  margin-bottom: 30px;
+}
+
+.credits-section h3 {
+  font-family: "MinecraftTenCyrillic", sans-serif;
+  color: var(--primary-orange-darker, #ff5722);
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(var(--primary-orange-rgb, 255, 165, 0), 0.25);
+}
+
+.credits-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.credits-section li {
+  margin-bottom: 18px;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-sub, #ced4da);
+}
+
+.credits-section li strong {
+  color: var(--text-main, #eceff1);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 1.05em;
+}
+
+.credits-section p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.credits-section a {
+  color: var(--primary-orange-lighter, #ffcc80);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--primary-orange-lighter, #ffcc80);
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+.credits-section a:hover {
+  color: var(--hero-accent-light, #ff7043);
+  border-bottom-color: var(--hero-accent-light, #ff7043);
+}
+
+.credits-footer-note {
+  text-align: center;
+  margin-top: 35px;
+  font-size: 0.9rem;
+  color: var(--text-sub, #b0bec5);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .credits-container {
+    padding: 25px 30px;
+    max-height: 88dvh;
+  }
+  .credits-container h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  .credits-section h3 {
+    font-size: 1.4rem;
+  }
+  .credits-back-button {
+    top: 12px;
+    right: 15px;
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+   .credits-container {
+    padding: 20px 15px;
+    max-height: 90dvh;
+  }
+  .credits-overlay {
+    padding: 10px;
+  }
+   .credits-container h2 {
+    font-size: 1.7rem;
+    margin-bottom: 25px;
+  }
+  .credits-section h3 {
+    font-size: 1.3rem;
+  }
+  .credits-section p, .credits-section li {
+    font-size: 0.9rem;
+  }
+}

@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useInView } from "react-intersection-observer";
 import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
@@ -10,41 +10,37 @@ import FAQSection from "./components/FAQSection";
 import RoadmapSection from "./components/RoadmapSection";
 import TeamSection from "./components/TeamSection";
 import Footer from "./components/Footer";
-// import { mainTrack } from './musicData'; // Если вынесли в отдельный файл
+import Credits from "./components/Credits"; // Импорт остается
 
 import "./App.css";
-import "./styles/animations.css"; // Глобальные анимации для секций
+import "./styles/animations.css";
+import AboutProjectSection from "./components/AboutProjectSection";
 
-
-
-// Определяем информацию о треке здесь или импортируем из musicData.js
 const mainTrack = {
   src: "https://raw.githubusercontent.com/Taskov1ch/Aurion/main/site_assets/sounds/bg.mp3",
-  title: "Monumental", // Пример
-  composer: "Alex-Productions", // Пример
-  sourceUrl: "https://www.chosic.com/download-audio/59421/", // Ссылка на источник музыки, если есть
+  title: "Monumental",
+  composer: "Alex-Productions",
+  sourceUrl: "https://www.chosic.com/download-audio/59421/",
 };
 
-function App() {
-  const [siteResourceLoading, setSiteResourceLoading] = useState(true); // Загрузка ресурсов сайта
-  const [mainContentLoaded, setMainContentLoaded] = useState(false); // Контент показан после клика на прелоадере
+const PRELOADER_LOGO_URL_APP = "https://raw.githubusercontent.com/Taskov1ch/Aurion/main/logo.png";
 
+function App() {
+  const [siteResourceLoading, setSiteResourceLoading] = useState(true);
+  const [mainContentLoaded, setMainContentLoaded] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const musicAudioRef = useRef(null);
-
   const { ref: heroSectionRef, entry: heroEntry } = useInView({ threshold: 0 });
-  const [isHeroScrolledPast, setIsHeroScrolledPast] = useState(false);
+  const [isHeroScrolledPast, setIsHeroScrolledPast] = useState(false); // Оставляем, если используется еще где-то или для Navbar
+  const [isCreditsVisible, setIsCreditsVisible] = useState(false);
 
-  // Эффект для определения окончания загрузки ресурсов
+
   useEffect(() => {
     const handleLoad = () => {
-      // Имитация минимального времени показа спиннера + реальная загрузка
       setTimeout(() => {
-        setSiteResourceLoading(false); // Ресурсы "загружены", прелоадер перейдет к фазе 'prompt'
-      }, 1000); // Минимум 1с для спиннера
-
+        setSiteResourceLoading(false);
+      }, 1000);
     };
-
     if (document.readyState === "complete") {
       handleLoad();
     } else {
@@ -53,58 +49,59 @@ function App() {
     return () => window.removeEventListener("load", handleLoad);
   }, []);
 
-  // Эффект для отслеживания прокрутки HeroSection (для Navbar)
   useEffect(() => {
     if (heroEntry) {
       setIsHeroScrolledPast(heroEntry.boundingClientRect.bottom < 0);
     }
   }, [heroEntry]);
 
-  // Инициализация и блокировка/разблокировка скролла
   useEffect(() => {
-    if (siteResourceLoading || !mainContentLoaded) {
+    if (siteResourceLoading || !mainContentLoaded || isCreditsVisible) {
       document.body.classList.add("no-scroll");
     } else {
       document.body.classList.remove("no-scroll");
     }
-    // Очистка класса при размонтировании, на всякий случай
     return () => document.body.classList.remove("no-scroll");
-  }, [siteResourceLoading, mainContentLoaded]);
+  }, [siteResourceLoading, mainContentLoaded, isCreditsVisible]);
 
-  // Инициализация основного музыкального плеера
   useEffect(() => {
     musicAudioRef.current = new Audio(mainTrack.src);
     musicAudioRef.current.loop = true;
   }, []);
 
-  // Колбэк, вызываемый из Preloader после клика пользователя
   const handlePreloaderInteraction = () => {
-    setMainContentLoaded(true); // Показываем основной контент
+    setMainContentLoaded(true);
     if (musicAudioRef.current) {
       musicAudioRef.current
         .play()
         .catch((e) => console.error("Ошибка музыки:", e));
       setIsMusicPlaying(true);
     }
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "instant", // 'instant' для мгновенного перехода,
-        // 'smooth' для плавной прокрутки наверх (если это нужно)
-      });
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   };
 
-  const toggleMusic = () => {
+  const toggleMusic = useCallback(() => {
     if (musicAudioRef.current) {
-      if (isMusicPlaying) {
-        musicAudioRef.current.pause();
-      } else {
-        musicAudioRef.current
-          .play()
-          .catch((e) => console.error("Ошибка музыки:", e));
-      }
-      setIsMusicPlaying(!isMusicPlaying);
+      const currentAudio = musicAudioRef.current;
+      // Используем функциональное обновление состояния, чтобы setIsMusicPlaying не зависела от isMusicPlaying в зависимостях useCallback
+      setIsMusicPlaying(prevIsPlaying => {
+        if (prevIsPlaying) {
+          currentAudio.pause();
+        } else {
+          currentAudio.play().catch(e => console.error("Ошибка воспроизведения музыки:", e));
+        }
+        return !prevIsPlaying;
+      });
     }
+  }, [setIsMusicPlaying]);
+
+  const handleToggleCredits = () => {
+    setIsCreditsVisible(prev => !prev);
+    // Убираем скролл наверх при открытии/закрытии Credits,
+    // так как теперь это модальное окно и основное содержимое не меняет позицию.
+    // if (!isCreditsVisible) {
+    //     window.scrollTo({ top: 0, behavior: 'instant' });
+    // }
   };
 
   return (
@@ -114,27 +111,44 @@ function App() {
         onInteraction={handlePreloaderInteraction}
       />
 
+      {/* Основной контент сайта теперь всегда рендерится (после прелоадера) */}
       <div
         className={`app-content-wrapper ${
           !mainContentLoaded ? "content-hidden" : "content-visible"
         }`}
       >
-        <Navbar
-          isVisible={isHeroScrolledPast}
-          isMusicPlaying={isMusicPlaying}
-          toggleMusic={toggleMusic}
-          currentTrack={mainTrack}
-        />
+        {mainContentLoaded && (
+          <Navbar
+            // Navbar теперь всегда видима, если mainContentLoaded true
+            // (в соответствии с предыдущим запросом)
+            isVisible={true}
+            isMusicPlaying={isMusicPlaying}
+            toggleMusic={toggleMusic}
+            currentTrack={mainTrack}
+          />
+        )}
         <div className="main-content-scroll-wrapper">
           <HeroSection ref={heroSectionRef} />
+          <AboutProjectSection></AboutProjectSection>
           <WorldLoreSection />
           <RanksSection />
           <FAQSection />
           <RoadmapSection />
           <TeamSection />
         </div>
-        <Footer />
+        {mainContentLoaded && (
+          <Footer onToggleCredits={handleToggleCredits} />
+        )}
       </div>
+
+      {/* Компонент Credits рендерится поверх, если isCreditsVisible === true */}
+      {isCreditsVisible && (
+        <Credits
+          onClose={handleToggleCredits}
+          mainTrackInfo={mainTrack}
+          preloaderLogoUrl={PRELOADER_LOGO_URL_APP}
+        />
+      )}
     </>
   );
 }

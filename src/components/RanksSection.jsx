@@ -26,7 +26,8 @@ function RanksSection() {
   const [isLayer1Active, setIsLayer1Active] = useState(true);
   const [isSlidingCooldown, setIsSlidingCooldown] = useState(false);
   const cooldownTimerRef = useRef(null);
-  const SLIDE_COOLDOWN_DURATION = Math.max(SWIPER_ANIMATION_SPEED, BACKGROUND_FADE_DURATION) + 200;
+  const SLIDE_COOLDOWN_DURATION =
+    Math.max(SWIPER_ANIMATION_SPEED, BACKGROUND_FADE_DURATION) + 200;
 
   useEffect(() => {
     if (ranks.length > 0 && ranks[0].backgroundImage) {
@@ -72,7 +73,7 @@ function RanksSection() {
             backgroundImage: getDarkenedBackgroundImage(bgLayer1.url),
             opacity: bgLayer1.opacity,
             zIndex: bgLayer1.zIndex,
-            transitionDuration: `${BACKGROUND_FADE_DURATION}ms`
+            transitionDuration: `${BACKGROUND_FADE_DURATION}ms`,
           }}
         />
         <div
@@ -81,13 +82,17 @@ function RanksSection() {
             backgroundImage: getDarkenedBackgroundImage(bgLayer2.url),
             opacity: bgLayer2.opacity,
             zIndex: bgLayer2.zIndex,
-            transitionDuration: `${BACKGROUND_FADE_DURATION}ms`
+            transitionDuration: `${BACKGROUND_FADE_DURATION}ms`,
           }}
         />
       </div>
 
       <div className="container ranks-section-container">
-        <h2 className={`section-title scroll-animate fade-in ${sectionIsVisible ? 'is-visible delay-200ms' : ''}`}>
+        <h2
+          className={`section-title scroll-animate fade-in ${
+            sectionIsVisible ? "is-visible delay-200ms" : ""
+          }`}
+        >
           Ранги Сервера
         </h2>
         <Swiper
@@ -99,12 +104,16 @@ function RanksSection() {
           grabCursor={!isSlidingCooldown}
           allowTouchMove={!isSlidingCooldown}
           pagination={{ clickable: true }}
-          className={`ranks-swiper ${isSlidingCooldown ? 'swiper-cooldown' : ''} scroll-animate fade-in-up ${sectionIsVisible ? 'is-visible delay-400ms' : ''}`}
+          className={`ranks-swiper ${
+            isSlidingCooldown ? "swiper-cooldown" : ""
+          } scroll-animate fade-in-up ${
+            sectionIsVisible ? "is-visible delay-400ms" : ""
+          }`}
           style={{ "--swiper-speed": `${SWIPER_ANIMATION_SPEED}ms` }}
           onSlideChangeTransitionStart={handleSlideChange}
           watchSlidesProgress
         >
-          {ranks.map(rank => (
+          {ranks.map((rank) => (
             <SwiperSlide key={rank.id} className="rank-swiper-slide">
               <RankSlide rank={rank} />
             </SwiperSlide>

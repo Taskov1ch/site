@@ -14,10 +14,16 @@ const TimeDisplay = ({ value, label, isAnimating }) => (
 
 const HeroSection = React.forwardRef((props, ref) => {
   const [timeElapsed, setTimeElapsed] = useState({
-    days: 0, hours: 0, minutes: 0, seconds: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
   });
   const [isAnimating] = useState({
-    days: false, hours: false, minutes: false, seconds: false,
+    days: false,
+    hours: false,
+    minutes: false,
+    seconds: false,
   });
   const intervalRef = useRef(null);
   const startDateRef = useRef(new Date(START_DATE_STRING));
@@ -25,13 +31,15 @@ const HeroSection = React.forwardRef((props, ref) => {
   useEffect(() => {
     const updateTimer = () => {
       const now = new Date();
-      let diffInSeconds = Math.floor((now.getTime() - startDateRef.current.getTime()) / 1000);
+      let diffInSeconds = Math.floor(
+        (now.getTime() - startDateRef.current.getTime()) / 1000
+      );
       if (diffInSeconds < 0) diffInSeconds = 0;
 
       const d = Math.floor(diffInSeconds / (24 * 60 * 60));
-      diffInSeconds %= (24 * 60 * 60);
+      diffInSeconds %= 24 * 60 * 60;
       const h = Math.floor(diffInSeconds / (60 * 60));
-      diffInSeconds %= (60 * 60);
+      diffInSeconds %= 60 * 60;
       const m = Math.floor(diffInSeconds / 60);
       const s = diffInSeconds % 60;
       setTimeElapsed({ days: d, hours: h, minutes: m, seconds: s });
@@ -42,7 +50,7 @@ const HeroSection = React.forwardRef((props, ref) => {
   }, []);
 
   const handleScrollToNextSection = () => {
-    const nextSection = document.getElementById("world-lore");
+    const nextSection = document.getElementById("about-project");
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -56,10 +64,26 @@ const HeroSection = React.forwardRef((props, ref) => {
         <div className="hero-subtitle">Скоро всё будет готово!</div>
         <div className="hero-timer-box-title">Разработка длится уже:</div>
         <div className="hero-timer-box">
-          <TimeDisplay value={timeElapsed.days} label="дней" isAnimating={isAnimating.days} />
-          <TimeDisplay value={timeElapsed.hours} label="часов" isAnimating={isAnimating.hours} />
-          <TimeDisplay value={timeElapsed.minutes} label="минут" isAnimating={isAnimating.minutes} />
-          <TimeDisplay value={timeElapsed.seconds} label="секунд" isAnimating={isAnimating.seconds} />
+          <TimeDisplay
+            value={timeElapsed.days}
+            label="дней"
+            isAnimating={isAnimating.days}
+          />
+          <TimeDisplay
+            value={timeElapsed.hours}
+            label="часов"
+            isAnimating={isAnimating.hours}
+          />
+          <TimeDisplay
+            value={timeElapsed.minutes}
+            label="минут"
+            isAnimating={isAnimating.minutes}
+          />
+          <TimeDisplay
+            value={timeElapsed.seconds}
+            label="секунд"
+            isAnimating={isAnimating.seconds}
+          />
         </div>
       </div>
       <div

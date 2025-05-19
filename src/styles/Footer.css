@@ -1,3 +1,4 @@
+/* src/styles/Footer.css */
 .footer {
   font-family: "Minecraft", sans-serif;
   background-color: #1c1c1c;
@@ -5,18 +6,63 @@
   text-align: center;
   font-size: 0.9rem;
   border-top: 3px solid var(--primary-orange);
+  padding: 20px 0; /* Добавил немного вертикального padding */
+}
+
+/* Контейнер для лучшего управления элементами в футере */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Позволяет перенос на маленьких экранах */
+  gap: 15px; /* Расстояние между элементами при переносе */
 }
 
 .footer p {
-  margin: 0 0 10px 0;
+  margin: 0; /* Убираем стандартный отступ, если используем flex */
 }
 
-.footer .social-links a {
+.footer .social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Расстояние между ссылками/кнопками */
+}
+
+.footer .social-links a,
+.footer-credits-button { /* Общий стиль для ссылок и кнопки */
   color: #ffffff;
-  margin: 0 10px;
+  text-decoration: none; /* Для ссылки, кнопке не нужно */
   transition: color var(--transition-speed);
+  font-family: "Minecraft", sans-serif; /* Убедимся, что шрифт одинаковый */
+  font-size: 0.9rem; /* Убедимся, что размер одинаковый */
 }
 
-.footer .social-links a:hover {
+.footer .social-links a:hover,
+.footer-credits-button:hover {
   color: var(--primary-orange);
+}
+
+/* Специфичные стили для кнопки, чтобы она выглядела как ссылка */
+.footer-credits-button {
+  background: none;
+  border: none;
+  padding: 0; /* Убираем стандартные отступы кнопки */
+  cursor: pointer;
+  margin: 0; /* Убрал margin: 0 10px, т.к. есть gap */
+}
+
+.footer-link-separator {
+  color: #8a8a8a; /* Цвет разделителя */
+  /* margin: 0 5px; Убрал margin, т.к. есть gap */
+}
+
+/* Адаптивность для футера */
+@media (max-width: 520px) { /* Точка перелома может быть другой */
+  .footer-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer p {
+    margin-bottom: 10px; /* Возвращаем отступ, если элементы друг под другом */
+  }
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Preloader.css";
 
-const PRELOADER_LOGO_URL = "https://raw.githubusercontent.com/Taskov1ch/Aurion/main/logo.png";
+const PRELOADER_LOGO_URL =
+  "https://raw.githubusercontent.com/Taskov1ch/Aurion/main/logo.png";
 
 const Preloader = ({ siteActuallyLoading, onInteraction }) => {
   const [phase, setPhase] = useState("loading");
@@ -36,13 +37,27 @@ const Preloader = ({ siteActuallyLoading, onInteraction }) => {
       className={`preloader-overlay preloader-phase-${phase}`}
       onClick={handleClick}
     >
-      <div className={`preloader-spinner-container ${phase === "loading" ? "visible" : "hidden"}`}>
+      <div
+        className={`preloader-spinner-container ${
+          phase === "loading" ? "visible" : "hidden"
+        }`}
+      >
         <div className="loader"></div>
       </div>
 
-      <div className={`preloader-logo-prompt-container ${phase === "prompt" ? "visible" : "hidden"}`}>
-        <img src={PRELOADER_LOGO_URL} alt="Логотип Проекта" className="preloader-logo" />
-        <p className="preloader-prompt-text">Нажмите в любом месте чтобы продолжить.</p>
+      <div
+        className={`preloader-logo-prompt-container ${
+          phase === "prompt" ? "visible" : "hidden"
+        }`}
+      >
+        <img
+          src={PRELOADER_LOGO_URL}
+          alt="Логотип Проекта"
+          className="preloader-logo"
+        />
+        <p className="preloader-prompt-text">
+          Нажмите в любом месте чтобы продолжить.
+        </p>
       </div>
     </div>
   );

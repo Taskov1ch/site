@@ -1,0 +1,110 @@
+.credits-page {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/images/hero_bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 80px 20px;
+  color: var(--text-main, #ffffff);
+  font-family: "Minecraft", sans-serif;
+}
+
+.credits-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(30, 35, 45, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 40px;
+  border-radius: var(--border-radius, 10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.35);
+}
+
+.credits-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: "MinecraftTenCyrillic", sans-serif;
+  color: var(--primary-orange, #FFA500);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.credits-section {
+  margin-bottom: 40px;
+}
+
+.credits-section h2 {
+  font-size: 1.5rem;
+  color: var(--primary-orange, #FFA500);
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 165, 0, 0.2);
+  padding-bottom: 10px;
+}
+
+.credits-list {
+  list-style: none;
+  padding: 0;
+}
+
+.credits-list li {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.credit-name {
+  color: var(--text-main, #ffffff);
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.credits-list a {
+  color: var(--primary-orange, #FFA500);
+  text-decoration: none;
+  margin-left: 8px;
+  transition: color 0.2s ease;
+}
+
+.credits-list a:hover {
+  color: var(--primary-orange-darker, #FF8C00);
+  text-decoration: underline;
+}
+
+.credits-back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: var(--primary-orange, #FFA500);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: var(--border-radius, 4px);
+  transition: background-color 0.2s ease;
+}
+
+.credits-back-button:hover {
+  background-color: var(--primary-orange-darker, #FF8C00);
+}
+
+@media (max-width: 768px) {
+  .credits-page {
+    padding: 60px 15px;
+  }
+
+  .credits-container {
+    padding: 30px 20px;
+  }
+
+  .credits-title {
+    font-size: 2rem;
+  }
+
+  .credits-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .credits-list li {
+    font-size: 1rem;
+  }
+}

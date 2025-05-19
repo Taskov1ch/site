@@ -1,6 +1,7 @@
 // src/App.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -10,6 +11,7 @@ import FAQSection from "./components/FAQSection";
 import RoadmapSection from "./components/RoadmapSection";
 import TeamSection from "./components/TeamSection";
 import Footer from "./components/Footer";
+import CreditsPage from './pages/CreditsPage';
 // import { mainTrack } from './musicData'; // Если вынесли в отдельный файл
 
 import "./App.css";
@@ -108,34 +110,36 @@ function App() {
   };
 
   return (
-    <>
-      <Preloader
-        siteActuallyLoading={siteResourceLoading}
-        onInteraction={handlePreloaderInteraction}
-      />
-
-      <div
-        className={`app-content-wrapper ${
-          !mainContentLoaded ? "content-hidden" : "content-visible"
-        }`}
-      >
-        <Navbar
-          isVisible={isHeroScrolledPast}
-          isMusicPlaying={isMusicPlaying}
-          toggleMusic={toggleMusic}
-          currentTrack={mainTrack}
-        />
-        <div className="main-content-scroll-wrapper">
-          <HeroSection ref={heroSectionRef} />
-          <WorldLoreSection />
-          <RanksSection />
-          <FAQSection />
-          <RoadmapSection />
-          <TeamSection />
-        </div>
-        <Footer />
-      </div>
-    </>
+    <Router basename={import.meta.env.BASE_URL}>
+      <Routes>
+        <Route path="/credits" element={<CreditsPage />} />
+        <Route path="/" element={
+          <>
+            <Preloader
+              siteActuallyLoading={siteResourceLoading}
+              onInteraction={handlePreloaderInteraction}
+            />
+            <div className={`app-content-wrapper ${!mainContentLoaded ? "content-hidden" : "content-visible"}`}>
+              <Navbar
+                isVisible={isHeroScrolledPast}
+                isMusicPlaying={isMusicPlaying}
+                toggleMusic={toggleMusic}
+                currentTrack={mainTrack}
+              />
+              <div className="main-content-scroll-wrapper">
+                <HeroSection ref={heroSectionRef} />
+                <WorldLoreSection />
+                <RanksSection />
+                <FAQSection />
+                <RoadmapSection />
+                <TeamSection />
+              </div>
+              <Footer />
+            </div>
+          </>
+        } />
+      </Routes>
+    </Router>
   );
 }
 

@@ -255,9 +255,9 @@ const Navbar = ({ isVisible, isMusicPlaying, toggleMusic, currentTrack }) => {
             isMusicPlaying={isMusicPlaying}
             toggleMusic={toggleMusic}
           />
-          <div className="navbar-track-info-mobile-wrapper">
+          {/* <div className="navbar-track-info-mobile-wrapper">
             <TrackInfoDisplay />
-          </div>
+          </div> */}
         </div>
         <ul className="navbar-links-desktop">
           {navLinks.map((link) => (
@@ -276,7 +276,7 @@ const Navbar = ({ isVisible, isMusicPlaying, toggleMusic, currentTrack }) => {
           ))}
         </ul>
         <div className="navbar-desktop-controls-right">
-          <TrackInfoDisplay />
+          {/* <TrackInfoDisplay /> */}
           <MusicToggleButton
             isMusicPlaying={isMusicPlaying}
             toggleMusic={toggleMusic}

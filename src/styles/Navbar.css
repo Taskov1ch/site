@@ -13,7 +13,7 @@
   transform: translateY(-100%);
   opacity: 0;
   visibility: hidden;
-  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  transition:
     opacity 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     visibility 0s linear 0.45s;
 }
@@ -45,7 +45,7 @@
 .navbar-links-desktop li a {
   color: var(--text-sub, #c0c5ce);
   text-decoration: none;
-  padding: 10px 15px 10px 20px;
+  padding: 10px 15px;
   margin: 0 4px;
   font-family: "Minecraft", sans-serif;
   font-size: 0.85rem;

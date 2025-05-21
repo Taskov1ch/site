@@ -11,12 +11,7 @@ import FAQSection from "./components/FAQSection";
 import RoadmapSection from "./components/RoadmapSection";
 import TeamSection from "./components/TeamSection";
 import Footer from "./components/Footer";
-<<<<<<< HEAD
-import CreditsPage from './pages/CreditsPage';
-// import { mainTrack } from './musicData'; // Если вынесли в отдельный файл
-=======
 import Credits from "./components/Credits"; // Импорт остается
->>>>>>> tmp
 
 import "./App.css";
 import "./styles/animations.css";
@@ -111,38 +106,6 @@ function App() {
   };
 
   return (
-<<<<<<< HEAD
-    <Router basename={import.meta.env.BASE_URL}>
-      <Routes>
-        <Route path="/credits" element={<CreditsPage />} />
-        <Route path="/" element={
-          <>
-            <Preloader
-              siteActuallyLoading={siteResourceLoading}
-              onInteraction={handlePreloaderInteraction}
-            />
-            <div className={`app-content-wrapper ${!mainContentLoaded ? "content-hidden" : "content-visible"}`}>
-              <Navbar
-                isVisible={isHeroScrolledPast}
-                isMusicPlaying={isMusicPlaying}
-                toggleMusic={toggleMusic}
-                currentTrack={mainTrack}
-              />
-              <div className="main-content-scroll-wrapper">
-                <HeroSection ref={heroSectionRef} />
-                <WorldLoreSection />
-                <RanksSection />
-                <FAQSection />
-                <RoadmapSection />
-                <TeamSection />
-              </div>
-              <Footer />
-            </div>
-          </>
-        } />
-      </Routes>
-    </Router>
-=======
     <>
       <Preloader
         siteActuallyLoading={siteResourceLoading}
@@ -188,7 +151,6 @@ function App() {
         />
       )}
     </>
->>>>>>> tmp
   );
 }
 

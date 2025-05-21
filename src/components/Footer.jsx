@@ -7,10 +7,6 @@ function Footer({ onToggleCredits }) {
       <div className="container footer-container">
         <p>Тут скоро будет Copyright</p>
         <div className="social-links">
-<<<<<<< HEAD
-          <a href="https://vk.com/aurion_be" target="_blank">VK</a>
-          <Link to="/credits">Credits</Link>
-=======
           <a
             href="https://vk.com/aurion_be"
             target="_blank"
@@ -22,7 +18,6 @@ function Footer({ onToggleCredits }) {
           <button onClick={onToggleCredits} className="footer-credits-button">
             Благодарности
           </button>
->>>>>>> tmp
         </div>
       </div>
     </footer>

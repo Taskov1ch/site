@@ -10,7 +10,9 @@ export const STATUS_TYPES = {
 
 export const roadmapItems = [
   { id: 'idea', title: 'Идея сервера', status: STATUS_TYPES.READY },
-  { id: 'social_media', title: 'Создание соц сетей', status: STATUS_TYPES.PAUSED },
+  { id: "lore", title: "Расширения лора", status: STATUS_TYPES.PAUSED},
+  { id: "visual_novel", title: "Создания визуальной новеллы (дополнение к лору)", status: STATUS_TYPES.PLANNED },
+  { id: 'social_media', title: 'Создание соц. сетей', status: STATUS_TYPES.PAUSED },
   { id: 'server_design', title: 'Оформление сервера', status: STATUS_TYPES.IN_PROGRESS },
   { id: 'core_search', title: 'Поиск подходящего ядра', status: STATUS_TYPES.READY },
   { id: 'core_modification', title: 'Модификация ядра', status: STATUS_TYPES.IN_PROGRESS },

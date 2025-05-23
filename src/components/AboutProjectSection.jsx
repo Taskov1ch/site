@@ -1,6 +1,7 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import "../styles/AboutProjectSection.css";
+import ObfuscatedText from "./ObfuscatedText";
 
 const AboutProjectSection = () => {
   const { ref: sectionRef, inView: sectionIsVisible } = useInView({
@@ -11,16 +12,19 @@ const AboutProjectSection = () => {
   // Для задержек анимации элементов списка
   const listAnimationDelayBase = 500;
   const listAnimationDelayIncrement = 100;
+  let currentDelay = 0;
+  const delayIncrement = 300; // мс
 
   return (
     <section id="about-project" className="about-project-section" ref={sectionRef}>
       <div className="container about-project-container">
-        <h2
-          className={`section-title about-project-title scroll-animate fade-in-up ${
-            sectionIsVisible ? "is-visible delay-200ms" : ""
-          }`}
-        >
-          О Проекте "Aurion"
+        <h2 className="section-title about-project-title">
+          <ObfuscatedText
+            text={'О Проекте "Aurion"'}
+            start={sectionIsVisible}
+            delay={currentDelay}
+            speed={40}
+          />
         </h2>
         <div
           className={`about-project-content scroll-animate fade-in-up ${

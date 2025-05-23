@@ -58,7 +58,7 @@ const HeroSection = React.forwardRef((props, ref) => {
 
   return (
     <section id="home" className="hero-section" ref={ref}>
-      <div className="particles-overlay"></div>
+      {/* <div className="particles-overlay"></div> */}
       <div className="hero-content-wrapper">
         <div className="hero-title-main">Сервер в разработке</div>
         <div className="hero-subtitle">Скоро всё будет готово!</div>

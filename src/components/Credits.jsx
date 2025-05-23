@@ -79,13 +79,13 @@ const Credits = ({ onClose, mainTrackInfo, preloaderLogoUrl }) => {
               <p>"Minecraft Ten font cyrillic" от "SinMedia Studios"</p>
               <p>
                 Источник:{" "}
-                <a href="https://fonts-online.ru/fonts/minecraft-ten-font-cyrillic">
+                <a target="_blank" href="https://fonts-online.ru/fonts/minecraft-ten-font-cyrillic">
                   Шрифты онлайн
                 </a>
               </p>
               <p>
                 Лицензия:{" "}
-                <a href="https://creativecommons.org/licenses/by-sa/3.0/">
+                <a target="_blank" href="https://creativecommons.org/licenses/by-sa/3.0/">
                   CC BY-SA 3.0
                 </a>
               </p>
@@ -93,12 +93,12 @@ const Credits = ({ onClose, mainTrackInfo, preloaderLogoUrl }) => {
               "F77 Minecraft" от "Se7enty-Se7en"
               <p>
                 Источник:{" "}
-                <a href="https://fonts-online.ru/fonts/f77-minecraft">
+                <a target="_blank" href="https://fonts-online.ru/fonts/f77-minecraft">
                   Шрифты онлайн
                 </a>
               </p>
               Лицензия:{" "}
-                <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nd/3.0/">
                   CC BY-ND 3.0
                 </a>
             </li>

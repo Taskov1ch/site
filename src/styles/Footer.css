@@ -1,4 +1,4 @@
-/* src/styles/Footer.css */
+/* tmp/src/styles/Footer.css */
 .footer {
   font-family: "Minecraft", sans-serif;
   background-color: #1c1c1c;
@@ -6,66 +6,100 @@
   text-align: center;
   font-size: 0.9rem;
   border-top: 3px solid var(--primary-orange);
-  padding: 20px 0; /* Добавил немного вертикального padding */
+  padding: 30px 15px; /* Увеличим вертикальные и добавим боковые отступы по умолчанию */
 }
 
 /* Контейнер для лучшего управления элементами в футере */
+/* Класс .container из main.css уже задает max-width и margin: auto */
 .footer-container {
   display: flex;
-  justify-content: center; /* Центрируем по горизонтали */
-  align-items: center; /* Центрируем по вертикали */
-  flex-wrap: wrap; /* Позволяет перенос на маленьких экранах */
-  gap: 15px; /* Расстояние между элементами */
+  flex-direction: column; /* По умолчанию в столбик для мобильных */
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Расстояние между p и social-links */
   text-align: center;
 }
 
 .footer p {
-  margin: 0; /* Убираем стандартный отступ, если используем flex */
+  margin: 0;
+  max-width: 600px; /* Ограничим ширину текстового блока для лучшей читаемости */
+  line-height: 1.5; /* Улучшим межстрочный интервал */
 }
 
 .footer .social-links {
   display: flex;
-  justify-content: center; /* Центрируем ссылки внутри */
+  flex-wrap: wrap; /* Позволяем перенос ссылок, если их много */
+  justify-content: center;
   align-items: center;
-  gap: 10px; /* Расстояние между ссылками/кнопками */
+  gap: 10px 15px; /* Расстояние между ссылками/кнопками (вертикальное и горизонтальное) */
 }
 
 .footer .social-links a,
 .footer-credits-button { /* Общий стиль для ссылок и кнопки */
   color: #ffffff;
-  text-decoration: none; /* Для ссылки, кнопке не нужно */
-  transition: color var(--transition-speed);
-  font-family: "Minecraft", sans-serif; /* Убедимся, что шрифт одинаковый */
-  font-size: 0.9rem; /* Убедимся, что размер одинаковый */
+  text-decoration: none;
+  transition: color 0.2s ease; /* var(--transition-speed) если он определен глобально */
+  font-family: "Minecraft", sans-serif;
+  font-size: 0.9rem;
+  padding: 5px 8px; /* Небольшие отступы для кликабельности */
+  border-radius: 4px; /* Слегка скруглим, если нужно */
 }
 
 .footer .social-links a:hover,
 .footer-credits-button:hover {
   color: var(--primary-orange);
+  background-color: rgba(var(--primary-orange-rgb, 255, 165, 0), 0.1); /* Легкий фон при наведении */
 }
 
-/* Специфичные стили для кнопки, чтобы она выглядела как ссылка */
 .footer-credits-button {
   background: none;
   border: none;
-  padding: 0; /* Убираем стандартные отступы кнопки */
   cursor: pointer;
-  margin: 0; /* Убрал margin: 0 10px, т.к. есть gap */
+  margin: 0;
+  line-height: inherit; /* Для консистентности с <a> */
 }
 
 .footer-link-separator {
-  color: #8a8a8a; /* Цвет разделителя */
-  /* margin: 0 5px; Убрал margin, т.к. есть gap */
+  color: #8a8a8a;
+  margin: 0 5px; /* Немного уменьшим отступ для разделителя */
+  display: inline-block; /* Для корректного отображения */
 }
 
 /* Адаптивность для футера */
-@media (max-width: 520px) { /* Точка перелома может быть другой */
+/* Медиа-запрос для экранов пошире, где можно разместить элементы в строку */
+@media (min-width: 768px) {
   .footer-container {
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row; /* В строку на больших экранах */
+    justify-content: space-between; /* Распределяем p и social-links по краям */
+    gap: 0.3px;
   }
+
   .footer p {
-    margin-bottom: 10px; /* Возвращаем отступ, если элементы друг под другом */
+    text-align: left; /* Текст слева на больших экранах */
+    margin-bottom: 0; /* Убираем отступ, т.к. элементы в строку */
+  }
+
+  .footer .social-links {
+    justify-content: flex-end; /* Ссылки справа на больших экранах */
   }
 }
 
+/* Скрываем разделители, если ссылки идут в столбик (по умолчанию для мобильных)
+   Или если они начинают переноситься и выглядит не очень.
+   Проще всего скрыть их на узких экранах, где flex-wrap может сработать для .social-links.
+*/
+@media (max-width: 480px) { /* Более узкий экран, где ссылки точно могут пойти в несколько рядов или в столбик */
+  .footer .social-links {
+    flex-direction: column; /* Можно сделать ссылким в столбик на очень маленьких экранах */
+    gap: 0.1rem; /* Увеличить вертикальный гэп */
+  }
+  .footer-link-separator {
+    display: none; /* Скрываем разделители, когда ссылки в столбик */
+  }
+  .footer .social-links a,
+  .footer-credits-button {
+    width: 100%; /* Можно растянуть кнопки/ссылки на всю доступную ширину */
+    box-sizing: border-box;
+    text-align: center;
+  }
+}

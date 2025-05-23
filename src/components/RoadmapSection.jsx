@@ -45,7 +45,7 @@ const RoadmapSection = () => {
                   `roadmap-item status-border-${statusSlug}` +
                   ` scroll-animate fade-in-up ${
                     sectionIsVisible
-                      ? `is-visible delay-${(index % 4) * 150 + 200}ms`
+                      ? `is-visible delay-200ms`
                       : ""
                   }`
                 }

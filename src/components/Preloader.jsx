@@ -4,18 +4,18 @@ import "../styles/Preloader.css";
 const PRELOADER_LOGO_URL =
   "https://raw.githubusercontent.com/Taskov1ch/Aurion/main/logo.png";
 
-const Preloader = ({ siteActuallyLoading, onInteraction }) => {
+const Preloader = ({ siteActuallyLoading, onInteraction, audioLoading }) => {
   const [phase, setPhase] = useState("loading");
   const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
-    if (!siteActuallyLoading && phase === "loading") {
+    if (!siteActuallyLoading && !audioLoading && phase === "loading") {
       const timer = setTimeout(() => {
         setPhase("prompt");
       }, 500);
       return () => clearTimeout(timer);
     }
-  }, [siteActuallyLoading, phase]);
+  }, [siteActuallyLoading, audioLoading, phase]);
 
   const handleClick = () => {
     if (phase === "prompt") {

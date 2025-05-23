@@ -248,7 +248,7 @@ const Navbar = ({ isVisible, isMusicPlaying, toggleMusic, currentTrack }) => {
     ) : null;
 
   return (
-    <nav className={`navbar ${isVisible ? "visible" : "hidden-above"}`}>
+    <nav className="visible navbar">
       <div className="navbar-container">
         <div className="navbar-mobile-controls-left">
           <MusicToggleButton

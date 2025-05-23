@@ -10,7 +10,9 @@ const FAQItem = ({ item, index, sectionIsVisible }) => {
     setIsOpen(!isOpen);
   };
 
-  const delayClass = `delay-${(index % 4) * 150 + 200}ms`;
+  const delayClass = "delay-200ms";
+
+  // console.log(`Delay class: ${delayClass}`);
 
   return (
     <li
@@ -25,7 +27,9 @@ const FAQItem = ({ item, index, sectionIsVisible }) => {
         aria-controls={`faq-answer-${item.id}`}
       >
         <span className="faq-question-text">{item.question}</span>
-        <span className={`faq-icon ${isOpen ? "open" : ""}`}>{isOpen ? "−" : "+"}</span>
+        <span className={`faq-icon ${isOpen ? "open" : ""}`}>
+          {isOpen ? "−" : "+"}
+        </span>
       </button>
       <div
         id={`faq-answer-${item.id}`}

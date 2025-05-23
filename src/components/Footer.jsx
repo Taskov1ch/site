@@ -7,8 +7,8 @@ function Footer({ onToggleCredits }) {
       <div className="container footer-container">
         <p>© 2025 Aurion BE.<br></br>
         Все права защищены.<br></br>
-Aurion BE не является официальным продуктом Minecraft Bedrock Edition и не одобрено, не связано, не поддерживается и не спонсируется Mojang AB или Microsoft Corp.
-Все права на Minecraft Bedrock Edition принадлежат Mojang AB и Microsoft Corp.</p>
+Aurion BE не является официальным продуктом Minecraft Bedrock Edition и никак не связан с Mojang AB или Microsoft Corp.
+</p>
         <div className="social-links">
           <a
             href="https://vk.com/aurion_be"
@@ -17,7 +17,23 @@ Aurion BE не является официальным продуктом Minecr
           >
             VK
           </a>
-          <span className="footer-link-separator">|</span>
+          {/* <span className="footer-link-separator">|</span> */}
+          <a href="https://t.me/aurion_be" target="_blank" rel="noopener noreferrer">
+            Telegram
+          </a>
+          {/* <span className="footer-link-separator">|</span> */}
+          <a href="https://github.com/Taskov1ch/Aurion" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          {/* <span className="footer-link-separator">|</span> */}
+          <button onClick={onToggleCredits} className="footer-credits-button">
+            Благодарности
+          </button>
+          {/* <span className="footer-link-separator">|</span> */}
+          <a href="https://github.com/Taskov1ch/Aurion" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          {/* <span className="footer-link-separator">|</span> */}
           <button onClick={onToggleCredits} className="footer-credits-button">
             Благодарности
           </button>

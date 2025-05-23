@@ -14,7 +14,7 @@
 
 .world-lore-section .world-lore-container {
   width: 90%;
-  max-width: 60vw;
+  /* max-width: 60vw; */
   margin: 0 auto;
   background-color: rgba(30, 35, 45, 0.2);
   backdrop-filter: blur(8px);

@@ -12,10 +12,11 @@
 /* Контейнер для лучшего управления элементами в футере */
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
   flex-wrap: wrap; /* Позволяет перенос на маленьких экранах */
-  gap: 15px; /* Расстояние между элементами при переносе */
+  gap: 15px; /* Расстояние между элементами */
+  text-align: center;
 }
 
 .footer p {
@@ -24,6 +25,7 @@
 
 .footer .social-links {
   display: flex;
+  justify-content: center; /* Центрируем ссылки внутри */
   align-items: center;
   gap: 10px; /* Расстояние между ссылками/кнопками */
 }
@@ -66,3 +68,4 @@
     margin-bottom: 10px; /* Возвращаем отступ, если элементы друг под другом */
   }
 }
+

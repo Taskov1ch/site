@@ -5,7 +5,10 @@ function Footer({ onToggleCredits }) {
   return (
     <footer className="footer">
       <div className="container footer-container">
-        <p>Тут скоро будет Copyright</p>
+        <p>© 2025 Aurion BE.<br></br>
+        Все права защищены.<br></br>
+Aurion BE не является официальным продуктом Minecraft Bedrock Edition и не одобрено, не связано, не поддерживается и не спонсируется Mojang AB или Microsoft Corp.
+Все права на Minecraft Bedrock Edition принадлежат Mojang AB и Microsoft Corp.</p>
         <div className="social-links">
           <a
             href="https://vk.com/aurion_be"

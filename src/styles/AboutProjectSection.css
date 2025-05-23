@@ -11,7 +11,7 @@
 
 .about-project-container {
   width: 90%;
-  max-width: 850px; /* Оптимальная ширина для текста */
+  /* max-width: 850px; */
   margin: 0 auto;
   background-color: rgba(38, 42, 53, 0.3); /* Слегка измененный фон контейнера */
   backdrop-filter: blur(10px);
@@ -106,20 +106,5 @@
   }
   .about-project-content li::before {
     font-size: 1em;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-project-title {
-    font-size: 1.9rem;
-  }
-  .about-project-content {
-    font-size: 0.92rem;
-  }
-   .about-project-subtitle {
-    font-size: 1.2rem;
-  }
-  .about-project-content li {
-    font-size: 0.9rem;
   }
 }

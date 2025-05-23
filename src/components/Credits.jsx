@@ -26,8 +26,15 @@ const Credits = ({ onClose, mainTrackInfo, preloaderLogoUrl }) => {
     };
   }, []);
 
+  const handleBackgroundClick = (event) => {
+    // Закрываем, только если клик был именно по фону, а не по контенту
+    if (event.target === event.currentTarget) {
+      handleClose();
+    }
+  };
+
   return (
-    <div className={`credits-overlay ${isVisible ? "visible" : ""}`}>
+    <div className={`credits-overlay ${isVisible ? "visible" : ""}`} onClick={handleBackgroundClick}>
       <div className="credits-container">
         <button
           className="credits-back-button"
@@ -79,18 +86,21 @@ const Credits = ({ onClose, mainTrackInfo, preloaderLogoUrl }) => {
               <p>
                 Лицензия:{" "}
                 <a href="https://creativecommons.org/licenses/by-sa/3.0/">
-                  Creative Commons Attribution Share Alike 3.0
+                  CC BY-SA 3.0
                 </a>
               </p>
               <br></br>
-              "Minecraft Rus" от ???
+              "F77 Minecraft" от "Se7enty-Se7en"
               <p>
                 Источник:{" "}
-                <a href="https://fonts-online.ru/fonts/minecraft-rus">
+                <a href="https://fonts-online.ru/fonts/f77-minecraft">
                   Шрифты онлайн
                 </a>
               </p>
-              <p>Лицензия: ???</p>
+              Лицензия:{" "}
+                <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+                  CC BY-ND 3.0
+                </a>
             </li>
           </ul>
         </div>

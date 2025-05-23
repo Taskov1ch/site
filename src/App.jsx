@@ -1,7 +1,7 @@
 // src/App.jsx
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useInView } from "react-intersection-observer";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
@@ -22,6 +22,12 @@ const mainTrack = {
   title: "Monumental",
   composer: "Alex-Productions",
   sourceUrl: "https://www.chosic.com/download-audio/59421/",
+  artWork: [
+    { src: "https://raw.githubusercontent.com/Taskov1ch/Aurion/main/site_assets/aw_1024.png", sizes: "1024x1024", type: "image/png" },
+    { src: "https://raw.githubusercontent.com/Taskov1ch/Aurion/main/site_assets/aw_512.png", sizes: "512x512", type: "image/png" },
+    { src: "https://raw.githubusercontent.com/Taskov1ch/Aurion/main/site_assets/aw_256.png", sizes: "256x256", type: "image/png" },
+    { src: "https://raw.githubusercontent.com/Taskov1ch/Aurion/main/site_assets/aw_128.png", sizes: "128x128", type: "image/png" },
+  ]
 };
 
 const PRELOADER_LOGO_URL_APP = "https://raw.githubusercontent.com/Taskov1ch/Aurion/main/logo.png";
@@ -68,6 +74,15 @@ function App() {
   useEffect(() => {
     musicAudioRef.current = new Audio(mainTrack.src);
     musicAudioRef.current.loop = true;
+
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: mainTrack.title,
+        artist: mainTrack.composer,
+        artwork: mainTrack.artWork,
+      });
+
+    }
   }, []);
 
   const handlePreloaderInteraction = () => {
@@ -101,7 +116,7 @@ function App() {
     // Убираем скролл наверх при открытии/закрытии Credits,
     // так как теперь это модальное окно и основное содержимое не меняет позицию.
     // if (!isCreditsVisible) {
-    //     window.scrollTo({ top: 0, behavior: 'instant' });
+    //     window.scrollTo({ top: 0, behavior: "instant" });
     // }
   };
 

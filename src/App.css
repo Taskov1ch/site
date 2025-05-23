@@ -1,3 +1,20 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0; /* Также хорошая практика для сброса стандартных отступов */
+  padding: 0; /* Если не хотите сбрасывать padding везде, то только box-sizing */
+}
+
+/* Если хотите сбросить margin/padding только для конкретных элементов, то не используйте '*' выше,
+   а для box-sizing оставьте: */
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit; /* Наследуем от html */
+}
+
 html {
   scroll-behavior: smooth;
 }

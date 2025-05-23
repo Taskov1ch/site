@@ -29,14 +29,6 @@ Aurion BE не является официальным продуктом Minecr
           <button onClick={onToggleCredits} className="footer-credits-button">
             Благодарности
           </button>
-          {/* <span className="footer-link-separator">|</span> */}
-          <a href="https://github.com/Taskov1ch/Aurion" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-          {/* <span className="footer-link-separator">|</span> */}
-          <button onClick={onToggleCredits} className="footer-credits-button">
-            Благодарности
-          </button>
         </div>
       </div>
     </footer>

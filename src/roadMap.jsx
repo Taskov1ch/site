@@ -25,6 +25,7 @@ export const roadmapItems = [
   { id: 'anticheat_testing', title: 'Тестирование античита', status: STATUS_TYPES.PLANNED },
   { id: 'map_construction', title: 'Стройка карты', status: STATUS_TYPES.PLANNED },
   { id: 'resource_packs_creation', title: 'Создания ресурс паков', status: STATUS_TYPES.PLANNED },
+  { id: 'sounds_creation', title: 'Создания звуков и озвучек (по возможности)', status: STATUS_TYPES.PLANNED },
   { id: 'donations_setup', title: 'Настройка донатов', status: STATUS_TYPES.PLANNED },
   { id: 'final_testing', title: 'Тестирование', status: STATUS_TYPES.PLANNED },
   { id: 'closed_beta_test', title: 'Закрытый бета тест', status: STATUS_TYPES.PLANNED },

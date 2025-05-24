@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { faqData } from "../faqData";
 import "../styles/FAQSection.css";
+import ObfuscatedText from "./ObfuscatedText";
 
 const FAQItem = ({ item, index, sectionIsVisible }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,15 +51,20 @@ const FAQSection = () => {
     threshold: 0.05,
   });
 
+  let currentDelay = 0;
+  const delayIncrement = 300; // мс
+
   return (
     <section id="faq" className="faq-section" ref={sectionRef}>
       <div className="container faq-container">
         <h2
-          className={`section-title faq-title scroll-animate fade-in-up ${
-            sectionIsVisible ? "is-visible" : ""
-          }`}
-        >
-          Часто Задаваемые Вопросы
+          className="section-title faq-title">
+          <ObfuscatedText
+            text={'Часто Задаваемые Вопросы'}
+            start={sectionIsVisible}
+            delay={currentDelay}
+            speed={40}
+          />
         </h2>
         <ul className="faq-list">
           {faqData.map((item, index) => (

@@ -2,8 +2,12 @@ import React from "react";
 import { useInView } from "react-intersection-observer";
 import { teamMembers } from "../teamData";
 import "../styles/TeamSection.css";
+import ObfuscatedText from "./ObfuscatedText";
 
 const TeamMemberCard = ({ member, isVisible, delay }) => {
+
+
+
   return (
     <div
       className={`team-member-card scroll-animate fade-in-up ${
@@ -46,6 +50,8 @@ const TeamSection = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+  let currentDelay = 0;
+  const delayIncrement = 300; // мс
 
   return (
     <section id="team" className="team-section" ref={sectionRef}>
@@ -55,7 +61,12 @@ const TeamSection = () => {
             sectionIsVisible ? "is-visible" : ""
           }`}
         >
-          Команда Разработчиков
+          <ObfuscatedText
+            text={'Команда Разработчиков'}
+            start={sectionIsVisible}
+            delay={currentDelay}
+            speed={40}
+          />
         </h2>
         {teamMembers.length > 0 ? (
           <div className="team-grid">

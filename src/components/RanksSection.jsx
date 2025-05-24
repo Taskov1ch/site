@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../styles/RanksSection.css";
+import ObfuscatedText from "./ObfuscatedText";
 
 const SWIPER_ANIMATION_SPEED = 300;
 const BACKGROUND_FADE_DURATION = 500;
@@ -64,6 +65,9 @@ function RanksSection() {
     );
   }
 
+  let currentDelay = 0;
+  const delayIncrement = 300; // мс
+
   return (
     <section id="ranks" className="ranks-section" ref={sectionRef}>
       <div className="ranks-background-fader">
@@ -89,11 +93,13 @@ function RanksSection() {
 
       <div className="container ranks-section-container">
         <h2
-          className={`section-title scroll-animate fade-in ${
-            sectionIsVisible ? "is-visible delay-200ms" : ""
-          }`}
-        >
-          Ранги Сервера
+          className="section-title">
+          <ObfuscatedText
+            text={'Ранги сервера'}
+            start={sectionIsVisible}
+            delay={currentDelay}
+            speed={60}
+          />
         </h2>
         <Swiper
           modules={[Pagination]}

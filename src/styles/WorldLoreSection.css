@@ -1,27 +1,24 @@
 .world-lore-section {
-  padding: 100px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/hero_bg.webp');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
+  padding: 90px 20px;
+  background: transparent;
   color: var(--text-main, #ffffff);
   position: relative;
   z-index: 1;
+  overflow-x: hidden;
+  font-family: "Minecraft", sans-serif;
 
 }
 
-.world-lore-section .world-lore-container {
+.world-lore-container {
   width: 90%;
-  /* max-width: 60vw; */
+  /* max-width: 850px; */
   margin: 0 auto;
-  background-color: rgba(30, 35, 45, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 30px 40px;
-  border-radius: var(--border-radius, 10px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+  background-color: rgba(38, 42, 53, 0.3); /* Слегка измененный фон контейнера */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 35px 40px;
+  border-radius: var(--border-radius-large, 12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -35,7 +32,7 @@
 }
 
 .world-lore-content {
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .world-lore-content p {
@@ -43,8 +40,9 @@
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--text-main, #e0e0e0);
-  margin-bottom: 20px;
-  text-indent: 1.5em;
+  margin-bottom: 22px;
+  /* text-indent: 1.5em; */
+  padding: 0px 2rem;
 }
 
 .world-lore-content p:first-child {
@@ -66,13 +64,13 @@
 }
 
 @media (max-width: 768px) {
-  .world-lore-section {
+  /* .world-lore-section {
     padding: 60px 15px;
-  }
+  } */
 
   .world-lore-section .world-lore-container {
-    padding: 25px 20px;
-    max-width: 80vw;
+    /* padding: 25px 20px; */
+    max-width: 90vw;
     background-color: rgba(30, 35, 45, 0.2);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -85,7 +83,8 @@
 
   .world-lore-content p {
     font-size: 1rem;
-    line-height: 1.7;
-    text-indent: 1em;
+    /* line-height: 1.7; */
+    padding: 0px 1rem;
+    /* text-indent: 1em; */
   }
 }

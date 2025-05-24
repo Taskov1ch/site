@@ -7,8 +7,8 @@ const ObfuscatedText = ({
   start,
   delay = 0,
   speed = 20, // Скорость проявления (мс на символ)
-  obfuscationChar = '░', // Символ(ы) для маскировки
-  charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:",.<>?/`~ ' // Для случайного выбора
+  // Символ(ы) для маскировки
+  charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:",.<>?/`~ あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'
 }) => {
   const [displayedText, setDisplayedText] = useState("");
   const intervalRef = useRef(null);
@@ -16,6 +16,7 @@ const ObfuscatedText = ({
   const isMounted = useRef(false);
 
   // Генерируем начальный обфусцированный текст один раз
+  const obfuscationChar = '*'; // Default obfuscation character
   const initialText = useMemo(() => {
     return text.split('').map(char => (char === ' ' ? ' ' : obfuscationChar)).join('');
   }, [text, obfuscationChar]);

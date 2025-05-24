@@ -2,6 +2,7 @@ import React from "react";
 import { useInView } from "react-intersection-observer";
 import { roadmapItems, STATUS_TYPES } from "../roadMap";
 import "../styles/RoadmapSection.css";
+import ObfuscatedText from "./ObfuscatedText";
 
 const StatusIcon = ({ status }) => {
   switch (status) {
@@ -24,15 +25,20 @@ const RoadmapSection = () => {
     threshold: 0.05,
   });
 
+  let currentDelay = 0;
+  const delayIncrement = 300; // мс
+
   return (
     <section id="roadmap" className="roadmap-section" ref={sectionRef}>
       <div className="container roadmap-container">
         <h2
-          className={`section-title roadmap-title scroll-animate fade-in-up ${
-            sectionIsVisible ? "is-visible" : ""
-          }`}
-        >
-          Дорожная Карта
+          className="section-title roadmap-title">
+          <ObfuscatedText
+            text={'Дорожная Карта'}
+            start={sectionIsVisible}
+            delay={currentDelay}
+            speed={60}
+          />
         </h2>
         <ul className="roadmap-list">
           {roadmapItems.map((item, index) => {

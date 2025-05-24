@@ -68,7 +68,7 @@ const Credits = ({ onClose, mainTrackInfo, preloaderLogoUrl }) => {
                   href="https://creativecommons.org/licenses/by/3.0/"
                   target="_blank"
                 >
-                  Creative Commons CC BY 3.0
+                  CC BY 3.0
                 </a>
                 .
               </p>

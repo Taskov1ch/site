@@ -1,22 +1,28 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import "../styles/WorldLoreSection.css";
+import ObfuscatedText from "./ObfuscatedText";
 
 const WorldLoreSection = () => {
   const { ref: sectionRef, inView: sectionIsVisible } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+  let currentDelay = 0;
+  const delayIncrement = 300; // мс
 
   return (
     <section id="world-lore" className="world-lore-section" ref={sectionRef}>
       <div className="container world-lore-container">
         <h2
-          className={`section-title world-lore-title scroll-animate fade-in ${
-            sectionIsVisible ? "is-visible delay-200ms" : ""
-          }`}
+          className="section-title world-lore-title"
         >
-          Лор Мира
+          <ObfuscatedText
+            text={'Лор мира'}
+            start={sectionIsVisible}
+            delay={currentDelay}
+            speed={80}
+          />
         </h2>
         <div
           className={`world-lore-content scroll-animate fade-in-up ${

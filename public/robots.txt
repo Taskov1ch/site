@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://taskov1ch.github.io/Aurion/sitemap.xml

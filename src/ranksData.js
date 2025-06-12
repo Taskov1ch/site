@@ -3,7 +3,7 @@ export const ranks = [
     id: "lost",
     name: "Заблудший",
     lore: "Когда звёзды гаснут в её глазах, она идёт вглубь теней, забыв, что искала. Никто не ведёт её, но её шаги слышны сквозь века.",
-    modelImage: `https://raw.githubusercontent.com/Taskov1ch/Aurion/main/site_assets/g1.webp`,
+    modelImage: `https://raw.githubusercontent.com/AurionBE/web-assets/refs/heads/main/rank_seals/lost.png`,
     backgroundImage: `https://raw.githubusercontent.com/Taskov1ch/Aurion/main/site_assets/bg1.webp`,
   },
   {

@@ -22,7 +22,7 @@ Aurion BE не является официальным продуктом Minecr
             Telegram
           </a>
           {/* <span className="footer-link-separator">|</span> */}
-          <a href="https://github.com/Taskov1ch/Aurion" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/AurionBE" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
           {/* <span className="footer-link-separator">|</span> */}

@@ -71,7 +71,7 @@ function RanksSection() {
   return (
     <section id="ranks" className="ranks-section" ref={sectionRef}>
       <div className="ranks-background-fader">
-        <div
+        {/* <div
           className="ranks-background-image"
           style={{
             backgroundImage: getDarkenedBackgroundImage(bgLayer1.url),
@@ -88,7 +88,7 @@ function RanksSection() {
             zIndex: bgLayer2.zIndex,
             transitionDuration: `${BACKGROUND_FADE_DURATION}ms`,
           }}
-        />
+        /> */}
       </div>
 
       <div className="container ranks-section-container">

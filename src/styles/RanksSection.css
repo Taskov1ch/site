@@ -1,15 +1,24 @@
 .ranks-section {
   height: 100dvh;
-  background-color: var(--bg-dark-gray);
+  /* background-color: var(--bg-dark-gray); */
   overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
-  border-top: 3px solid var(--primary-orange);
-  border-bottom: 3px solid var(--primary-orange);
+  width: 90%;
+  /* padding: 500px 0; */
+  background-color: rgba(55, 60, 75, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  margin-bottom: 12px;
+  border-radius: var(--border-radius, 8px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  /* border-top: 3px solid var(--primary-orange); */
+  /* border-bottom: 3px solid var(--primary-orange); */
 }
 
 .ranks-background-fader {
